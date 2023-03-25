@@ -1,0 +1,52 @@
+Command:
+brew install ./yabai.rb --HEAD
+codesign -fs 'yabai-cert' $(which yabai)
+
+Output:
+Warning: Calling plist_options is deprecated! Use service.require_root instead.
+Error: Failed to load cask: ./yabai.rb
+Cask 'yabai' is unreadable: wrong constant name #<Class:0x00000001334f4618>
+Warning: Treating ./yabai.rb as a formula.
+==> Fetching yabai
+==> Cloning https://github.com/kendreaditya/yabai.git
+Cloning into '/Users/kendreaditya/Library/Caches/Homebrew/yabai--git'...
+==> Checking out branch master
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+Warning: Calling plist_options is deprecated! Use service.require_root instead.
+Please report this issue to the koekeishiya/formulae tap (not Homebrew/brew or Homebrew/homebrew-core), or even better, submit a PR to fix it:
+  /opt/homebrew/Library/Taps/koekeishiya/homebrew-formulae/yabai.rb:42
+
+Warning: Calling plist_options is deprecated! Use service.require_root instead.
+==> make -j1 install
+==> Downloading https://formulae.brew.sh/api/cask.jws.json
+
+Warning: Calling plist_options is deprecated! Use service.require_root instead.
+==> Caveats
+Copy the example configuration into your home directory:
+  cp /opt/homebrew/opt/yabai/share/yabai/examples/yabairc ~/.yabairc
+  cp /opt/homebrew/opt/yabai/share/yabai/examples/skhdrc ~/.skhdrc
+
+Logs will be found in
+  /opt/homebrew/var/log/yabai/yabai.[out|err].log
+
+If you are using the scripting-addition; remember to update your sudoers file:
+  sudo visudo -f /private/etc/sudoers.d/yabai
+
+Build the configuration row by running:
+  echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa"
+
+README: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
+
+To start yabai now and restart at login:
+  brew services start yabai
+Or, if you don't want/need a background service you can just run:
+  yabai
+==> Summary
+🍺  /opt/homebrew/Cellar/yabai/HEAD-8b66158: 10 files, 1.8MB, built in 10 seconds
+==> Running `brew cleanup yabai`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+Removing: /Users/kendreaditya/Library/Caches/Homebrew/yabai--1.0.0-alpha.tar.gz... (288.9KB)
+Removing: /Users/kendreaditya/Library/Caches/Homebrew/yabai--5.0.2.tar.gz... (288.9KB)
+/opt/homebrew/bin/yabai: replacing existing signature
