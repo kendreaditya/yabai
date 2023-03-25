@@ -14,7 +14,8 @@ static TABLE_COMPARE_FUNC(compare_view)
 
 bool space_manager_has_separate_spaces(void)
 {
-    return SLSGetSpaceManagementMode(g_connection) == 1;
+    // return SLSGetSpaceManagementMode(g_connection) == 1;
+    return true;
 }
 
 bool space_manager_query_space(FILE *rsp, uint64_t sid)
